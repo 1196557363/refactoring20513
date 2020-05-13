@@ -1,5 +1,6 @@
 package com.wpj.controller;
 
+<<<<<<< HEAD
 import com.wpj.entity.Organization;
 import com.wpj.service.IOrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,27 @@ import java.util.List;
  * @version 1.0
  *     管理控制器
  **/
+=======
+import com.wpj.entity.User;
+import com.wpj.service.IAdminService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+
+/**
+ * @author WuPeiJie
+ * @version 1.0
+ *      管理控制器
+**/
+>>>>>>> featrue-user-admin-user
 @Controller
 @RequestMapping(value = "/user/admin")
 public class AdminController {
 
     @Resource
+<<<<<<< HEAD
     private IOrganizationService organizationService;
 
     @GetMapping(value = "/organization")
@@ -73,4 +90,14 @@ public class AdminController {
         adminService.deleteUser(userIdList);
         // TODO 设置状态 ctx.status = 204;
     }
+=======
+    private IAdminService adminService;
+
+    @PutMapping(value = "/user")
+    public User modifyUser(String department, Long id){
+        // TODO 检验参数
+        return adminService.modifyUser(department, id);
+    }
+
+>>>>>>> featrue-user-admin-user
 }

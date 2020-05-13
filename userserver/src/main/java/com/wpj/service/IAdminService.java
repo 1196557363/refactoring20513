@@ -23,5 +23,11 @@ public interface IAdminService {
      * @param userIdList
      */
     void deleteUser(List<Long> userIdList);
-
+    /**
+     * 修改用户信息
+     * @param department
+     * @param id
+     * @return
+     */
+    User modifyUser(String department, Long id);
 }

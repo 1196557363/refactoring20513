@@ -23,3 +23,6 @@
 
 # 2020-5-13 单机部署 user-admin-deleteUser
 1. 删除用户 : 需要检验参数 和 设置状态 serviceImpl中需要开启事务 删除用户的同时禁用metebase用户
+
+# 2020-5-13 单机部署 user-admin-user
+1. 修改用户信息
