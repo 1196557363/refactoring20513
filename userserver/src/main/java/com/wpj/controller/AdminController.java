@@ -68,7 +68,7 @@ public class AdminController {
     }
 
     @DeleteMapping(value = "/deleteUser")
-    public void deleteUser(List<Long> userIdList){
+    public void deleteUser(@RequestBody List<Long> userIdList){
         // TODO 检验参数 [ invalid_key_parameter ]
         adminService.deleteUser(userIdList);
         // TODO 设置状态 ctx.status = 204;

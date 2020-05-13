@@ -6,9 +6,9 @@ spring:
     name: userserver
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: data_center
-    password: hF0otBDkF+6aBytvo6Dfrw==
-    url: jdbc:mysql://rm-wz9k424mk70m8v818no.mysql.rds.aliyuncs.com:3306/genomics_data?useSSL=false
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/genomics_data?useSSL=false
 mybatis-plus:
   type-aliases-package: com.wpj
   mapper-locations: classpath:/mapper/*.xml

@@ -24,4 +24,11 @@ public class AdminServiceImpl implements IAdminService {
     public List<User> getAccount() {
         return adminDao.selectList(null);
     }
+
+    @Override
+    public void deleteUser(List<Long> userIdList) {
+        adminDao.deleteBatchIds(userIdList);
+    }
+
+
 }

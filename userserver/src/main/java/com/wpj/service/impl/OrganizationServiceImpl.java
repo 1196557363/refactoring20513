@@ -39,7 +39,6 @@ public class OrganizationServiceImpl implements IOrganizationService {
             System.err.println("Error OrganizationServiceImpl.addOrganization [ backend_msg_no_parent_organization_found ]");
             // TODO 不知道找不到父组织要不要终止添加
         }
-
         // 如果有父组织的话，给这个新增的组织设置路径
         Organization parentOrganization = organizationDao.selectById(organization.getParentId());
         organization.setPath(parentOrganization.getPath()+"/"+parentOrganization.getId());
@@ -67,18 +66,17 @@ public class OrganizationServiceImpl implements IOrganizationService {
         oIdList.add(id);
         // TODO 这里需要事务实现
         // 根据组织id查找该组织以及其下属组织的所有用户添加到userList中
-        List<User> userList = new ArrayList<>();
+        List<Long> uIdList = new ArrayList<>();
         for (int i = 0; i < oIdList.size(); i++){
             EntityWrapper<User> uWrapper = new EntityWrapper<User>();
             uWrapper.eq("organization", oIdList.get(i));
             for(User dbUser:userDao.selectList(uWrapper)){
-                userList.add(dbUser);
+                uIdList.add(dbUser.getId());
             }
         }
         // 删除userList下的所有用户
-        for (int i = 0; i < userList.size(); i++) {
-            userDao.deleteById(userList.get(i).getId());
-        }
+        userDao.deleteBatchIds(uIdList);
+
         // 删除组织id中的组织
         organizationDao.deleteBatchIds(oIdList);
     }
