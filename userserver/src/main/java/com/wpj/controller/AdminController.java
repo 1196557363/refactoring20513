@@ -2,11 +2,11 @@ package com.wpj.controller;
 
 import com.wpj.entity.Organization;
 import com.wpj.service.IOrganizationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.wpj.entity.User;
 import com.wpj.service.IAdminService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,17 +16,10 @@ import java.util.List;
 
 /**
  * @author WuPeiJie
-<<<<<<< HEAD
  * @date 2020/5/13 13:47
  * @version 1.0
  *     管理控制器
  **/
-=======
- * @date 2020/5/13 14:11
- * @version 1.0
- *     管理控制器
-**/
->>>>>>> featrue-user-admin-account
 @Controller
 @RequestMapping(value = "/user/admin")
 public class AdminController {
@@ -51,7 +44,6 @@ public class AdminController {
         organizationService.addOrganization(organization);
     }
 
-
     @DeleteMapping(value = "/organization")
     @ResponseBody
     public void deleteOrganization(Long id){
@@ -60,7 +52,7 @@ public class AdminController {
         // TODO 设置状态204 ctx.status = 204;
     }
 
-}
+    @Resource
     private IAdminService adminService;
 
     @GetMapping(value = "/account")

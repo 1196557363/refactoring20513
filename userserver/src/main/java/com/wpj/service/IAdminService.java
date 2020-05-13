@@ -1,6 +1,5 @@
 package com.wpj.service;
 
-
 import com.wpj.entity.User;
 
 import java.util.List;
