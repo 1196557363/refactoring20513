@@ -13,9 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.wpj")
 @MapperScan(basePackages = "com.wpj.dao")
 public class UserserverApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(UserserverApplication.class, args);
     }
-
 }
