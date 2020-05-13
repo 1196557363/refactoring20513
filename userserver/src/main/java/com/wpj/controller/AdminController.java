@@ -66,4 +66,11 @@ public class AdminController {
     public String hello(){
         return "adminService.getAccount();";
     }
+
+    @DeleteMapping(value = "/deleteUser")
+    public void deleteUser(List<Long> userIdList){
+        // TODO 检验参数 [ invalid_key_parameter ]
+        adminService.deleteUser(userIdList);
+        // TODO 设置状态 ctx.status = 204;
+    }
 }

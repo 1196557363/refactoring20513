@@ -9,7 +9,7 @@ import java.util.List;
  * @date 2020/5/13 14:14
  * @version 1.0
  *     管理服务
-**/
+ **/
 public interface IAdminService {
 
     /**
@@ -17,4 +17,11 @@ public interface IAdminService {
      * @return
      */
     List<User> getAccount();
+
+    /**
+     * 根据id集合删除用户
+     * @param userIdList
+     */
+    void deleteUser(List<Long> userIdList);
+
 }
