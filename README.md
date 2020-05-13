@@ -7,6 +7,11 @@
 3. yml配置
 4. 启动类
 
+# 2020-5-13 单机部署 user-admin-organization
+1. 获取组织列表
+2. 添加组织 : 不知道是传一个对象 还是传多个参数 暂设为对象
+3. 删除组织 : 删除操作需要实现事务。 Controller需要验证传过来的id 和 设置状态 ctx.status = 204;
+
 # 2020-5-13 单机部署 user-access-register
 1. 对于根据邮件查到用户之后的情况暂且不明
 2. 对于基础服务的createMetaBaseUser方法不是很清楚
