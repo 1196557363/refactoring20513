@@ -1,5 +1,6 @@
 package com.wpj.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wpj.dao.IAccessDao;
 import com.wpj.entity.User;
 import com.wpj.service.IUserService;
