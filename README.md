@@ -17,3 +17,6 @@
 2. 对于基础服务的createMetaBaseUser方法不是很清楚
 3. 当前版本的user表中的字段 organization 应该为 organizationId
 4. 有些操作需要事务
+
+# 2020-5-13 单机部署 user-admin-account
+1. 获取用户列表
