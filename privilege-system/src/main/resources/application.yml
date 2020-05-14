@@ -13,3 +13,5 @@ spring:
 mybatis-plus:
   type-aliases-package: com.wpj
   mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: false

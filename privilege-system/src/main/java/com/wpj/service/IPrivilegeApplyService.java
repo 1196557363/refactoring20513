@@ -1,6 +1,9 @@
 package com.wpj.service;
 
 import com.wpj.entity.PrivilegeApply;
+import com.wpj.entity.TableInfo;
+
+import java.util.List;
 
 /**
  * @author WuPeiJie
@@ -13,4 +16,11 @@ public interface IPrivilegeApplyService {
      * @param privilegeApply
      */
     void addPrivilegeApply(PrivilegeApply privilegeApply);
+
+    /**
+     * 获取申请列表
+     * @param userId
+     * @return
+     */
+    List<TableInfo> getPrivilegeApply(String userId);
 }
