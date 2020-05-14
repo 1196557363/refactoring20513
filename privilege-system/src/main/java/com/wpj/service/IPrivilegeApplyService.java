@@ -23,4 +23,11 @@ public interface IPrivilegeApplyService {
      * @return
      */
     List<TableInfo> getPrivilegeApply(String userId);
+
+    /**
+     * 获取申请详情
+     * @return
+     * @param id
+     */
+    PrivilegeApply getPrivilegeApplyInfo(Long id);
 }

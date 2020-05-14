@@ -34,4 +34,11 @@ public class PrivilegeApplyServiceImpl implements IPrivilegeApplyService {
         wrapper.eq("userId", userId);
         return privilegeApplyDao.selectList(wrapper);
     }
+
+    @Override
+    public PrivilegeApply getPrivilegeApplyInfo(Long id) {
+        PrivilegeApply privilegeApply = privilegeApplyDao.selectById(id);
+        System.out.println(privilegeApply);
+        return privilegeApply;
+    }
 }
