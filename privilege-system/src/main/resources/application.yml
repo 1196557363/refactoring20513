@@ -1,0 +1,15 @@
+server:
+  port: 5080
+
+spring:
+  application:
+    name: privilege-system
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/genomics_data?useSSL=false
+
+mybatis-plus:
+  type-aliases-package: com.wpj
+  mapper-locations: classpath:/mapper/*.xml
