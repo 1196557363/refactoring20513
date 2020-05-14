@@ -46,12 +46,18 @@ public class PrivilegeApplyServiceImpl implements IPrivilegeApplyService {
     public void updatePrivilegeApply(Long id) {
         PrivilegeApply privilegeApply = privilegeApplyDao.selectById(id);
         if(privilegeApply!= null) {
-            privilegeApply.setIsDeleted(1);
+            if(privilegeApply.getIsDeleted() == 1) {
+                privilegeApply.setIsDeleted(0);
+            } else {
+                privilegeApply.setIsDeleted(1);
+            }
             EntityWrapper<PrivilegeApply> wrapper = new EntityWrapper<>();
             wrapper.eq("id", id);
             privilegeApplyDao.update(privilegeApply, wrapper);
             return;
+
         }
         System.err.println("Error PrivilegeApplyServiceImpl.updatePrivilegeApply [ PrivilegeApply is not found ]");
     }
+
 }

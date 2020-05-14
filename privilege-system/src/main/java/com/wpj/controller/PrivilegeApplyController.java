@@ -49,5 +49,9 @@ public class PrivilegeApplyController {
         privilegeApplyService.updatePrivilegeApply(id);
     }
 
+    @PostMapping(value = "/privilegeApply/{id}")
+    public void reapplyPrivilegeApply(@PathVariable Long id){
+        privilegeApplyService.updatePrivilegeApply(id);
+    }
 
 }

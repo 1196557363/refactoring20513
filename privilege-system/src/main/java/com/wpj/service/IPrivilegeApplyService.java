@@ -32,8 +32,9 @@ public interface IPrivilegeApplyService {
     PrivilegeApply getPrivilegeApplyInfo(Long id);
 
     /**
-     * 撤回申请
+     * 更改申请 [撤销, 重申]
      * @param id
      */
     void updatePrivilegeApply(Long id);
+
 }
