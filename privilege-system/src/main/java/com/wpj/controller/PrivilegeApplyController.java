@@ -34,8 +34,9 @@ public class PrivilegeApplyController {
     }
 
     @GetMapping(value = "/privilegeApply")
-    public List<TableInfo> getPrivilegeApply(String userId){
-        return privilegeApplyService.getPrivilegeApply(userId);
+    public List<TableInfo> getPrivilegeApply(Long userId){
+
+        return privilegeApplyService.getPrivilegeApply(userId, null);
     }
 
     @GetMapping(value = "/privilegeApply/{id}")
@@ -52,6 +53,12 @@ public class PrivilegeApplyController {
     @PostMapping(value = "/privilegeApply/{id}")
     public void reapplyPrivilegeApply(@PathVariable Long id){
         privilegeApplyService.updatePrivilegeApply(id);
+    }
+
+    @GetMapping(value = "/privilegeAllApply")
+    public List<TableInfo> getPrivilegeAllApply(){
+        // TODO 检查admin权限
+        return privilegeApplyService.getPrivilegeApply(null, 1L);
     }
 
 }

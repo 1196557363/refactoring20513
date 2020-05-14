@@ -2,6 +2,7 @@ package com.wpj.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wpj.dao.IPrivilegeApplyDao;
+import com.wpj.dao.ITableInfoDao;
 import com.wpj.entity.PrivilegeApply;
 import com.wpj.entity.TableInfo;
 import com.wpj.service.IPrivilegeApplyService;
@@ -21,6 +22,9 @@ public class PrivilegeApplyServiceImpl implements IPrivilegeApplyService {
     @Resource
     private IPrivilegeApplyDao privilegeApplyDao;
 
+    @Resource
+    private ITableInfoDao tableInfoDao;
+
     @Override
     public void addPrivilegeApply(PrivilegeApply privilegeApply) {
         // TODO 需要开始事务
@@ -29,10 +33,17 @@ public class PrivilegeApplyServiceImpl implements IPrivilegeApplyService {
     }
 
     @Override
-    public List<TableInfo> getPrivilegeApply(String userId) {
+    public List<TableInfo> getPrivilegeApply(Long userId, Long isDeleted) {
         EntityWrapper wrapper = new EntityWrapper();
-        wrapper.eq("userId", userId);
-        return privilegeApplyDao.selectList(wrapper);
+        // 用户获取自己的申请
+        if(userId != null) {
+            wrapper.eq("userId", userId);
+        }
+        // 管理员获取非撤回的申请
+        if(isDeleted != null) {
+            wrapper.eq("isDeleted", isDeleted);
+        }
+        return tableInfoDao.selectList(wrapper);
     }
 
     @Override
@@ -55,7 +66,6 @@ public class PrivilegeApplyServiceImpl implements IPrivilegeApplyService {
             wrapper.eq("id", id);
             privilegeApplyDao.update(privilegeApply, wrapper);
             return;
-
         }
         System.err.println("Error PrivilegeApplyServiceImpl.updatePrivilegeApply [ PrivilegeApply is not found ]");
     }

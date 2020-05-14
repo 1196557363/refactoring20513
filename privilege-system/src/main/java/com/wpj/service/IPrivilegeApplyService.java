@@ -20,9 +20,10 @@ public interface IPrivilegeApplyService {
     /**
      * 获取申请列表
      * @param userId
+     * @param isDeleted 是否只获取非撤回的
      * @return
      */
-    List<TableInfo> getPrivilegeApply(String userId);
+    List<TableInfo> getPrivilegeApply(Long userId, Long isDeleted);
 
     /**
      * 获取申请详情
