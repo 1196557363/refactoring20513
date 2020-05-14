@@ -38,4 +38,10 @@ public interface IPrivilegeApplyService {
      */
     void updatePrivilegeApply(Long id);
 
+    /**
+     * 管理员审核申请
+     * @param id
+     * @param privilegeApply
+     */
+    void approvalPrivilegeApply(Long id, PrivilegeApply privilegeApply);
 }

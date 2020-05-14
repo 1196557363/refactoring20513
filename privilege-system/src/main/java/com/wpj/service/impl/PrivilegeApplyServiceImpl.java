@@ -70,4 +70,20 @@ public class PrivilegeApplyServiceImpl implements IPrivilegeApplyService {
         System.err.println("Error PrivilegeApplyServiceImpl.updatePrivilegeApply [ PrivilegeApply is not found ]");
     }
 
+    @Override
+    public void approvalPrivilegeApply(Long id, PrivilegeApply privilegeApply) {
+        PrivilegeApply p = privilegeApplyDao.selectById(id);
+        if(p != null) {
+            p.setStatus(privilegeApply.getStatus());
+            p.setType(privilegeApply.getType());
+            p.setAuditRemarks(privilegeApply.getAuditRemarks());
+            EntityWrapper<PrivilegeApply> wrapper = new EntityWrapper<>();
+            wrapper.eq("id", id);
+            privilegeApplyDao.update(privilegeApply, wrapper);
+            return;
+        }
+        System.err.println("Error PrivilegeApplyServiceImpl.updatePrivilegeApply [ PrivilegeApply is not found ]");
+
+    }
+
 }
