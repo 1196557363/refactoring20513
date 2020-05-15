@@ -1,5 +1,6 @@
 package com.wpj.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 
@@ -13,12 +14,17 @@ import com.baomidou.mybatisplus.annotations.TableName;
 public class TableInfo {
   @TableId
   private String id;
+  @TableField(value = "enName")
   private String enName;
+  @TableField(value = "zhName")
   private String zhName;
+  @TableField(value = "createdAt")
   private long createdAt;
+  @TableField(value = "updateAt")
   private long updateAt;
   private String description;
   private long sort;
+  @TableField(value = "dbName")
   private String dbName;
   private long storage;
   private long rows;
@@ -123,4 +129,20 @@ public class TableInfo {
     this.privilege = privilege;
   }
 
+  @Override
+  public String toString() {
+    return "TableInfo{" +
+            "id='" + id + '\'' +
+            ", enName='" + enName + '\'' +
+            ", zhName='" + zhName + '\'' +
+            ", createdAt=" + createdAt +
+            ", updateAt=" + updateAt +
+            ", description='" + description + '\'' +
+            ", sort=" + sort +
+            ", dbName='" + dbName + '\'' +
+            ", storage=" + storage +
+            ", rows=" + rows +
+            ", privilege=" + privilege +
+            '}';
+  }
 }

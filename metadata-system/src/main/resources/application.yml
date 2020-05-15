@@ -1,5 +1,5 @@
 server:
-  port: 5000
+  port: 5080
 
 spring:
   application:
@@ -13,3 +13,5 @@ spring:
 mybatis-plus:
   type-aliases-package: com.wpj
   mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: false

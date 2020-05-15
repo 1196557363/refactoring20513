@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 **/
 @TableName(value = "table_columns")
 public class TableColumns {
-  @TableId()
+  @TableId
   private String tableId;
   @TableId
   private String columns;

@@ -1,37 +1,50 @@
 package com.wpj.entity;
 
-
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 
+import java.io.Serializable;
+
 /**
  * @author WuPeiJie
  * @version 1.0
- *    权限应用实体
-**/
+ *
+ **/
 @TableName(value = "privilege_apply")
-public class PrivilegeApply {
+public class PrivilegeApply implements Serializable {
 
   @TableId(type = IdType.AUTO)
   private long id;
-  private String oaId;
+  @TableField(value = "OAId")
+  private String OAId;
+  @TableField(value = "userId")
   private long userId;
+  @TableField(value = "tableId")
   private String tableId;
   private String columns;
   private long status;
   private long type;
   private String remarks;
+  @TableField(value = "auditorId")
   private String auditorId;
+  @TableField(value = "auditRemarks")
   private String auditRemarks;
+  @TableField(value = "createdAt")
   private long createdAt;
+  @TableField(value = "updatedAt")
   private long updatedAt;
+  @TableField(value = "expiredAt")
   private long expiredAt;
+  @TableField(value = "expiredType")
   private long expiredType;
+  @TableField(value = "expiredTime")
   private long expiredTime;
+  @TableField(value = "isInvalid")
   private long isInvalid;
+  @TableField(value = "isDeleted")
   private long isDeleted;
-
 
   public long getId() {
     return id;
@@ -41,15 +54,13 @@ public class PrivilegeApply {
     this.id = id;
   }
 
-
-  public String getOaId() {
-    return oaId;
+  public String getOAId() {
+    return OAId;
   }
 
-  public void setOaId(String oaId) {
-    this.oaId = oaId;
+  public void setOAId(String OAId) {
+    this.OAId = OAId;
   }
-
 
   public long getUserId() {
     return userId;
@@ -59,7 +70,6 @@ public class PrivilegeApply {
     this.userId = userId;
   }
 
-
   public String getTableId() {
     return tableId;
   }
@@ -67,7 +77,6 @@ public class PrivilegeApply {
   public void setTableId(String tableId) {
     this.tableId = tableId;
   }
-
 
   public String getColumns() {
     return columns;
@@ -77,7 +86,6 @@ public class PrivilegeApply {
     this.columns = columns;
   }
 
-
   public long getStatus() {
     return status;
   }
@@ -85,7 +93,6 @@ public class PrivilegeApply {
   public void setStatus(long status) {
     this.status = status;
   }
-
 
   public long getType() {
     return type;
@@ -95,7 +102,6 @@ public class PrivilegeApply {
     this.type = type;
   }
 
-
   public String getRemarks() {
     return remarks;
   }
@@ -103,7 +109,6 @@ public class PrivilegeApply {
   public void setRemarks(String remarks) {
     this.remarks = remarks;
   }
-
 
   public String getAuditorId() {
     return auditorId;
@@ -113,7 +118,6 @@ public class PrivilegeApply {
     this.auditorId = auditorId;
   }
 
-
   public String getAuditRemarks() {
     return auditRemarks;
   }
@@ -121,7 +125,6 @@ public class PrivilegeApply {
   public void setAuditRemarks(String auditRemarks) {
     this.auditRemarks = auditRemarks;
   }
-
 
   public long getCreatedAt() {
     return createdAt;
@@ -131,7 +134,6 @@ public class PrivilegeApply {
     this.createdAt = createdAt;
   }
 
-
   public long getUpdatedAt() {
     return updatedAt;
   }
@@ -139,7 +141,6 @@ public class PrivilegeApply {
   public void setUpdatedAt(long updatedAt) {
     this.updatedAt = updatedAt;
   }
-
 
   public long getExpiredAt() {
     return expiredAt;
@@ -149,7 +150,6 @@ public class PrivilegeApply {
     this.expiredAt = expiredAt;
   }
 
-
   public long getExpiredType() {
     return expiredType;
   }
@@ -157,7 +157,6 @@ public class PrivilegeApply {
   public void setExpiredType(long expiredType) {
     this.expiredType = expiredType;
   }
-
 
   public long getExpiredTime() {
     return expiredTime;
@@ -167,7 +166,6 @@ public class PrivilegeApply {
     this.expiredTime = expiredTime;
   }
 
-
   public long getIsInvalid() {
     return isInvalid;
   }
@@ -175,7 +173,6 @@ public class PrivilegeApply {
   public void setIsInvalid(long isInvalid) {
     this.isInvalid = isInvalid;
   }
-
 
   public long getIsDeleted() {
     return isDeleted;
@@ -185,4 +182,26 @@ public class PrivilegeApply {
     this.isDeleted = isDeleted;
   }
 
+  @Override
+  public String toString() {
+    return "PrivilegeApply{" +
+            "id=" + id +
+            ", OAId='" + OAId + '\'' +
+            ", userId=" + userId +
+            ", tableId='" + tableId + '\'' +
+            ", columns='" + columns + '\'' +
+            ", status=" + status +
+            ", type=" + type +
+            ", remarks='" + remarks + '\'' +
+            ", auditorId='" + auditorId + '\'' +
+            ", auditRemarks='" + auditRemarks + '\'' +
+            ", createdAt=" + createdAt +
+            ", updatedAt=" + updatedAt +
+            ", expiredAt=" + expiredAt +
+            ", expiredType=" + expiredType +
+            ", expiredTime=" + expiredTime +
+            ", isInvalid=" + isInvalid +
+            ", isDeleted=" + isDeleted +
+            '}';
+  }
 }
