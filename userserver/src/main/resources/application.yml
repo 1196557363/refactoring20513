@@ -13,3 +13,11 @@ mybatis-plus:
   type-aliases-package: com.wpj
   mapper-locations: classpath:/mapper/*.xml
 
+# UMS
+UMS_URL: https://db.cngb.org/cmdb/ums/UIMS/oauth
+UMS_CLIENT_ID: S107
+UMS_CLIENT_SECRET: 1259a5643e2d46a684205ade824b3bd8
+FRONTEND_URL: http://47.107.21.250:82/frontend/
+META_BASE_URL: http://47.112.170.150:3000
+PRIVILEGE_SYSTEM_URL: http://47.107.21.250:82/privilege
+ALLOW_NON_REGULAR_USER: true # 是否允许非正式员工登陆
