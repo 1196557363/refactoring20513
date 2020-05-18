@@ -32,9 +32,8 @@ public class MetaDataServiceImpl implements IMetaDataService {
     @Resource
     private IPrivilegeApplyDao privilegeApplyDao;
 
-
     @Override
-    public List<String> getTable(Integer from, Integer to, Integer currentPage, Integer pageSize, String tableName, String columnsName, Integer sort, Long userId) {
+    public ResultEntity<Object> getTable(Integer from, Integer to, Integer currentPage, Integer pageSize, String tableName, String columnsName, Integer sort, Long userId) {
 
         EntityWrapper<TableInfo> wrapper = new EntityWrapper();
         if(from != null ){
@@ -59,19 +58,18 @@ public class MetaDataServiceImpl implements IMetaDataService {
         }
         //
         EntityWrapper<PrivilegeApply> pWrapper = new EntityWrapper<>();
-        pWrapper.eq("userId", userId);
+//        pWrapper.eq("userId", userId);
         pWrapper.eq("status", PrivilegeApplyConstants.STATUS_SUCCESS);
         pWrapper.eq("tableId", tableName);
-        pWrapper.eq("expiredAt", System.currentTimeMillis() / 1000);
+//        pWrapper.eq("expiredAt", System.currentTimeMillis() / 1000);
 
         List<PrivilegeApply> privilegeApplies = privilegeApplyDao.selectList(pWrapper);
 
         ResultEntity<Object> result = new ResultEntity<>();
-        result.setMsg("查询成功");
+        result.setData(privilegeApplies);
 
-//        JSONObject jsonObject= (JSONObject) JSONObject.toJSON(sysUser);
-
-
-        return ids;
+        return result;
     }
+
+
 }

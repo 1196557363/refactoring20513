@@ -1,5 +1,8 @@
 package com.wpj.service;
 
+import com.wpj.entity.PrivilegeApply;
+import com.wpj.result.ResultEntity;
+
 import java.util.List;
 
 /**
