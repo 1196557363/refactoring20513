@@ -7,6 +7,7 @@ import com.wpj.entity.TableInfo;
 import com.wpj.result.ResultEntity;
 import com.wpj.service.IMetaDataService;
 import com.wpj.service.ITableInfoService;
+import com.wpj.service.ITableRelationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,9 @@ public class MetaDataController {
 
     @Resource
     private ITableInfoService tableInfoService;
+
+    @Resource
+    private ITableRelationService tableRelationService;
 
     @GetMapping(value = "/table")
     @ResponseBody
@@ -62,5 +66,11 @@ public class MetaDataController {
         return ResultEntity.success(tableInfoService.getTableInfo(tableId));
     }
 
+
+    @GetMapping(value = "/table/{tableId}/consanguinity")
+    @ResponseBody
+    public ResultEntity<Object> getTableConsanguinity(@PathVariable String tableId){
+        return ResultEntity.success(tableRelationService.getTableConsanguinity(tableId));
+    }
 
 }

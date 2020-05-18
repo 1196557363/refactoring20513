@@ -22,4 +22,5 @@ public interface ITableInfoService {
      * @return Data数据
      */
     ResultEntity getTableInfo(String tableId);
+
 }

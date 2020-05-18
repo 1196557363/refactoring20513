@@ -1,5 +1,6 @@
 package com.wpj.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 
 
@@ -10,10 +11,13 @@ import com.baomidou.mybatisplus.annotations.TableName;
 **/
 @TableName(value = "table_relation")
 public class TableRelation {
-
+  @TableField(value = "fromTable")
   private String fromTable;
+  @TableField(value = "fromColumn")
   private String fromColumn;
+  @TableField(value = "toTble")
   private String toTble;
+  @TableField(value = "toColumn")
   private String toColumn;
 
 
